@@ -7,7 +7,7 @@ public class Citizen extends Person {
 		givenNames = gNs;
 		familyName = fN;
 		yearOfBirth = yB;
-		
+		registrationID = createRegistrationID();
 	}
 	/**Implement abstract Person method to create citizen registrationID in proper form
 	 * 

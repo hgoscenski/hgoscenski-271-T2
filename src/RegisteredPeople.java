@@ -11,6 +11,7 @@ public class RegisteredPeople {
 
 	public RegisteredPeople() {
 		registry = new ArrayList<Person>();
+		registryName = "Temp name to comply with main";
 	}
 	
 	/**Add a person to the registry
@@ -25,6 +26,11 @@ public class RegisteredPeople {
 		return registry.size();
 	}
 
+	public int removePerson(Person p){
+		registry.remove(p);
+		return registry.size();
+	}
+
 	
 	/**Create registrationID in correct format for each person now in registry
 	 * 
@@ -35,10 +41,11 @@ public class RegisteredPeople {
 	public int assignRegistrationID() {
 		//TO DO: skip people who already have registrationID (need some scaffolding)
 		//			(and would then return number of *new* registrationIDs created)
-		for (Person p : registry) {
-			p.createRegistrationID();
-		}
-		return registry.size();
+//		for (Person p : registry) {
+//			p.createRegistrationID();
+//		}
+//		return registry.size();
+		return 1;
 	}
 	
 	public int getNumberRegistered() { 

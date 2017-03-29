@@ -7,15 +7,16 @@ public class Immigrant extends Person {
 		givenNames = gNs;
 		familyName = fN;
 		yearOfEntry = yE;
-		birthCountry = bC;	
+		birthCountry = bC;
+		registrationID = createRegistrationID();
 	}
 	
 	public Immigrant(AsylumSeeker s){
 		givenNames = s.getGivenNames();
 		familyName = s.getFamilyName();
 		yearOfEntry = s.getYearOfEntry();
-
-		//Suggestion - add this constructor to make an immigrant from a asylum seeker
+		birthCountry = s.getBirthCountry();
+		createRegistrationId(s);
 	}
 	
 	/**Implement abstract Person method to create immigrant registrationID in proper form
@@ -24,6 +25,12 @@ public class Immigrant extends Person {
 	@Override
 	public String createRegistrationID() {
 		registrationID = "IM" + birthCountry + yearOfEntry + "-" + nextNumber;
+		nextNumber++;
+		return registrationID;
+	}
+
+	public String createRegistrationId(AsylumSeeker as){
+		registrationID = "IM" + birthCountry + yearOfEntry + "-" + as.getIDNum();
 		nextNumber++;
 		return registrationID;
 	}

@@ -21,13 +21,13 @@ public class AsylumProcessor {
 
     public int acceptSeekers(int i, RegisteredPeople rp){
 	    int counter = 0;
-	    for(int j = 0; j < registryDeque.size() && j < i; j++){
-
-	        rp.addPerson(new Immigrant(registryDeque.pop()));
+	    for(int j = 0; j < registryDeque.size(); j++){
+			AsylumSeeker tempAsy = registryDeque.pop();
+			rp.removePerson(tempAsy);
+	        rp.addPerson(new Immigrant(tempAsy));
 	        counter++;
         }
         return counter;
     }
 
-	//To do:  all that is needed here
 }

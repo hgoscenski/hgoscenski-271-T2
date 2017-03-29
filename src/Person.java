@@ -17,7 +17,7 @@ public abstract class Person {
 	 * 
 	 */
 	public String toString() {
-		return registrationID + "*" + familyName.toUpperCase() + "*" + givenNames + "\n";
+		return registrationID + " *" + familyName.toUpperCase() + "*" + givenNames + "\n";
 	}
 	
 	public int compareTo(Person p) {

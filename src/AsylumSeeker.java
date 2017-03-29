@@ -8,7 +8,7 @@ public class AsylumSeeker extends Person {
     private String birthCountry;
     private AsylumProcessor as;
 
-    public AsylumSeeker(String gNS, String fN, int yE, String arrivalCountry, String birthCountry, AsylumProcessor aS) {
+    public AsylumSeeker(String gNS, String fN, int yE, String arrivalCountry, String birthCountry, AsylumProcessor aP) {
         this.arrivalCountry = arrivalCountry;
         if(birthCountry.isEmpty()){
             this.birthCountry = "Unknown";
@@ -19,10 +19,11 @@ public class AsylumSeeker extends Person {
         this.familyName = fN;
         this.givenNames = gNS;
         this.yearOfEntry = yE;
-        this.as = as;
+        registrationID = createRegistrationID();
+        aP.addRear(this);
     }
 
-    public AsylumSeeker(String gNS, String fN, int yE, String arrivalCountry, String birthCountry, String medicalCondition, AsylumProcessor aS){
+    public AsylumSeeker(String gNS, String fN, int yE, String arrivalCountry, String birthCountry, String medicalCondition, AsylumProcessor aP){
         this.arrivalCountry = arrivalCountry;
         if(medicalCondition.isEmpty()){
             hasMedicalCondition = false;
@@ -34,8 +35,12 @@ public class AsylumSeeker extends Person {
         this.familyName = fN;
         this.givenNames = gNS;
         this.yearOfEntry = yE;
-        this.as = as;
-
+        registrationID = createRegistrationID();
+        if(hasMedicalCondition){
+            aP.addFront(this);
+        } else {
+            aP.addRear(this);
+        }
     }
 
     public String getGivenNames(){
@@ -46,24 +51,16 @@ public class AsylumSeeker extends Person {
         return familyName;
     }
 
-    public String getArrivalCountry() {
-        return arrivalCountry;
-    }
-
-    public boolean isHasMedicalCondition() {
-        return hasMedicalCondition;
-    }
-
-    public String getMedicalCondtion() {
-        return medicalCondtion;
-    }
-
     public int getYearOfEntry() {
         return yearOfEntry;
     }
 
     public String getBirthCountry() {
         return birthCountry;
+    }
+
+    public String getIDNum(){
+        return registrationID.substring(registrationID.length()-5, registrationID.length()-1);
     }
 
     @Override
