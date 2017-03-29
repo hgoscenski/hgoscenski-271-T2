@@ -11,6 +11,10 @@ public class Immigrant extends Person {
 	}
 	
 	public Immigrant(AsylumSeeker s){
+		givenNames = s.getGivenNames();
+		familyName = s.getFamilyName();
+		yearOfEntry = s.getYearOfEntry();
+
 		//Suggestion - add this constructor to make an immigrant from a asylum seeker
 	}
 	
@@ -23,6 +27,10 @@ public class Immigrant extends Person {
 		nextNumber++;
 		return registrationID;
 	}
-	
+
+
+
+//			registrationID.substring(registrationID.length()-4, registrationID.length()).matches("[\\d]{4}")
+
 
 }

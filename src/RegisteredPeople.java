@@ -9,10 +9,8 @@ public class RegisteredPeople {
 	private ArrayList<Person> registry;
 	private Deque asylumDeque;
 
-	public RegisteredPeople(String registryName) {
+	public RegisteredPeople() {
 		registry = new ArrayList<Person>();
-		this.registryName = registryName;
-		this.asylumDeque = new ArrayDeque<AsylumSeeker>();
 	}
 	
 	/**Add a person to the registry
@@ -27,10 +25,6 @@ public class RegisteredPeople {
 		return registry.size();
 	}
 
-	public int addPerson(AsylumSeeker as){
-		registry.add(as);
-		return registry.size();
-	}
 	
 	/**Create registrationID in correct format for each person now in registry
 	 * 
@@ -55,9 +49,13 @@ public class RegisteredPeople {
 		StringJoiner toS;
 		toS = new StringJoiner("");
 		toS.add("Contents of " + registryName + " currently " + registry.size() + " people\n");
-		for (Person p : registry) {
-			toS.add(p.toString());
-		}
+		try {
+            for (Person p : registry) {
+                toS.add(p.toString());
+            }
+        } catch(NullPointerException e){
+		    // DO NOTHING
+        }
 		return toS.toString();	
 	}
 }
