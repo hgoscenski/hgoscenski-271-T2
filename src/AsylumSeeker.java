@@ -10,11 +10,7 @@ public class AsylumSeeker extends Person {
 
     public AsylumSeeker(String gNS, String fN, int yE, String arrivalCountry, String birthCountry, AsylumProcessor aP) {
         this.arrivalCountry = arrivalCountry;
-        if(birthCountry.isEmpty()){
-            this.birthCountry = "Unknown";
-        } else {
-            this.birthCountry = birthCountry;
-        }
+        birthContryStatus(birthCountry);
         this.birthCountry = birthCountry;
         this.familyName = fN;
         this.givenNames = gNS;
@@ -25,13 +21,9 @@ public class AsylumSeeker extends Person {
 
     public AsylumSeeker(String gNS, String fN, int yE, String arrivalCountry, String birthCountry, String medicalCondition, AsylumProcessor aP){
         this.arrivalCountry = arrivalCountry;
-        if(medicalCondition.isEmpty()){
-            hasMedicalCondition = false;
-        } else {
-            hasMedicalCondition = true;
-        }
+        medStatus(medicalCondition);
         this.medicalCondtion = medicalCondition;
-        this.birthCountry = birthCountry;
+        birthContryStatus(birthCountry);
         this.familyName = fN;
         this.givenNames = gNS;
         this.yearOfEntry = yE;
@@ -57,6 +49,22 @@ public class AsylumSeeker extends Person {
 
     public String getBirthCountry() {
         return birthCountry;
+    }
+
+    private void medStatus(String medicalCondtion){
+        if(medicalCondtion.isEmpty()){
+            hasMedicalCondition = false;
+        } else {
+            hasMedicalCondition = true;
+        }
+    }
+
+    private void birthContryStatus(String birthCountry){
+        if(birthCountry.isEmpty()){
+            this.birthCountry = "Unknown";
+        } else {
+            this.birthCountry = birthCountry;
+        }
     }
 
     public String getIDNum(){

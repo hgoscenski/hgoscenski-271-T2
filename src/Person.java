@@ -1,5 +1,6 @@
 
 public abstract class Person {
+//	no changes made here!
 
 	protected static int nextNumber = 9001; //starting point for unique registration numbers
 	protected String givenNames;

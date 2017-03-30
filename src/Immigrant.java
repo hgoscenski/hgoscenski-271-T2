@@ -10,6 +10,8 @@ public class Immigrant extends Person {
 		birthCountry = bC;
 		registrationID = createRegistrationID();
 	}
+
+//	added this here fancy constructor to turn asylumseekers into immigrants
 	
 	public Immigrant(AsylumSeeker s){
 		givenNames = s.getGivenNames();
@@ -28,6 +30,8 @@ public class Immigrant extends Person {
 		nextNumber++;
 		return registrationID;
 	}
+
+//	made a fancy OO method that can take the asylum seeker and retain there reg number using a method that takes it as a substring from their orginal id
 
 	public String createRegistrationId(AsylumSeeker as){
 		registrationID = "IM" + birthCountry + yearOfEntry + "-" + as.getIDNum();

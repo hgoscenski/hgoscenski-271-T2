@@ -46,6 +46,10 @@ public class RegisteredPeople {
 //		}
 //		return registry.size();
 		return 1;
+//		So this right here....
+//		I decided that I liked this idea very little.
+//		I decided instead that this functionality belonged not in this class but rather in the individual constructors.
+//
 	}
 	
 	public int getNumberRegistered() { 
@@ -65,4 +69,5 @@ public class RegisteredPeople {
         }
 		return toS.toString();	
 	}
+//	suppressing errors due to sad events
 }
